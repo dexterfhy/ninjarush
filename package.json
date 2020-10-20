@@ -1,0 +1,25 @@
+{
+  "name": "ninjarush",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "http-server .",
+    "start-webpack": "webpack-dev-server --open",
+    "build": "webpack"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "lodash": "^4.17.20",
+    "phaser": "^3.24.1"
+  },
+  "devDependencies": {
+    "http-server": "^0.12.3",
+    "prettier": "2.1.2",
+    "webpack": "^5.1.3",
+    "webpack-cli": "^4.1.0",
+    "webpack-dev-server": "^3.11.0"
+  },
+  "description": ""
+}
