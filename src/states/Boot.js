@@ -18,6 +18,9 @@ boot.prototype = {
   },
 
   create: function () {
+  	var params = getParamsFromUrl(window.location.href)
+    if (params['code']) localStorage.setItem('code', params['code'])
+
     w2 = this.game.width / 2
     h2 = this.game.height / 2
 

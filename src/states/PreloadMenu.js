@@ -9,10 +9,10 @@ preloadMenu.prototype = {
     this.game.load.image('main-bubble', 'assets/sprites/gui/speech-bubble.png')
 
     this.game.load.image('aux-stat', 'assets/sprites/gui/stats/aux-stat.png')
-    this.game.load.image('score', 'assets/sprites/gui/stats/score-general.png')
 
     this.game.load.audio('move0', 'assets/sfx/zig.wav')
     this.game.load.audio('move1', 'assets/sfx/zig.wav')
+    this.game.load.audio('pickup', 'assets/sfx/item.wav')
     this.game.load.audio('success', 'assets/sfx/door-slam-2.wav')
     this.game.load.audio('kill', 'assets/sfx/squish.wav')
 

@@ -125,15 +125,47 @@ Main.prototype = {
     if (!this.getHighScore() || score < this.getHighScore()) {
       localStorage.setItem('highScore', score)
 	  this.updateHighScoreText(true)
-      this.showEndgameText('Congrats! Your new high score\nhas been uploaded.')
+      this.showEndgameText(successWithNewHighScoreLines[Math.floor(Math.random() * successWithNewHighScoreLines.length)]['text'])
+      this.submitScore(score)
+    } else {
+      this.showEndgameText(successWithoutHighScoreLines[Math.floor(Math.random() * successWithoutHighScoreLines.length)]['text'])
     }
   },
 
-  submitScore: function () {
+  submitScore: function (score) {
+  	var headers = {}
+  	headers['Content-Type'] = 'application/json'
+
+  	$.ajax({
+  		url: "http://localhost:9000/game-result",
+  		type: "POST",
+  		headers: headers,
+  		data: JSON.stringify({
+  			code: localStorage.getItem('code'),
+  			score: score
+  		}),
+    	dataType: 'json',
+  		success: result => {
+		  if (this.submittedResult) this.submittedResult.destroy()
+		  console.log(result)
+		  var text = 'You are #' + result.data.position + ' out of ' + result.data.totalResults + ' player(s).'
+		  text += '\n\nTop score for Today: ' + result.data.topScore.toFixed(2) + 's'
+		  if (score < 5.0) text += "\n\n(" + score.toFixed(2) + "s?! I gotta say that's pretty sus.)"
+
+		  this.submittedResult = this.game.add.text(w2, h2 * 1.4, text, {
+			font: '37px Trebuchet MS',
+			fill: '#ffffff',
+			align: 'center',
+			fontWeight: 'bold'})
+		  this.submittedResult.anchor.setTo(0.5, 0.5)
+  		},
+  		error: error => {
+			console.log('Error! ', error) //Ignore
+		}
+	})
   },
 
   kill: function (other) {
-  	console.log(other)
   	this.game.time.events.remove(this.runtimeTimer)
 
   	if (other.key === 'main-ryo') {

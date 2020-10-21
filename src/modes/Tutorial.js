@@ -41,6 +41,8 @@ Tutorial.prototype = {
   update: function () {},
 
   collect: function (playerSprite, powerSprite) {
+  	pickupSound.play()
+
     if (powerSprite.name.indexOf('parcel') > -1) {
       this.score++
       this.createParcel('parcel')
@@ -72,7 +74,6 @@ Tutorial.prototype = {
     if (this.score === 1) {
 	  localStorage.setItem('tutorialCompleted', 1)
 	  this.player.sprite.loadTexture('player-loaded')
-	  console.log(this)
 
       this.countdownCounter = 5
       this.countdownText = this.game.add.text(w2, h2, getCountdown(this.countdownCounter), {

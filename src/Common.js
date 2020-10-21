@@ -60,3 +60,24 @@ function changeBGColor (game) {
   game.stage.backgroundColor = colorHex
   changeColor = false
 }
+
+function getParamsFromUrl(url) {
+     url = decodeURI(url);
+     if (typeof url === 'string') {
+         if (!url) {
+             return {};
+         }
+         let params = url.split('?');
+         let eachParamsArr = params[1].split('&');
+         let obj = {};
+         if (eachParamsArr && eachParamsArr.length) {
+             eachParamsArr.map(param => {
+                 let keyValuePair = param.split('=')
+                 let key = keyValuePair[0];
+                 let value = decodeURIComponent(keyValuePair[1]);
+                 obj[key] = value;
+             })
+         }
+         return obj;
+     }
+ }

@@ -46,6 +46,7 @@ GameManager.prototype = {
     moveSounds = []
     moveSounds[0] = this.add.audio('move0')
     moveSounds[1] = this.add.audio('move1')
+    pickupSound = this.add.audio('pickup')
     successSound = this.add.audio('success')
     killSound = this.add.audio('kill')
 

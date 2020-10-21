@@ -11,6 +11,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "jquery": "^3.5.1",
     "lodash": "^4.17.20",
     "phaser": "^3.24.1"
   },

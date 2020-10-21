@@ -145,8 +145,7 @@ Player.prototype = {
         if (!this.dead && !gameOver && !paused) {
           this.clicks++
           localStorage.setItem('mouseClicks', this.clicks)
-          if (this.autoMode) console.log(this.totalTime)
-          else this.inputTimes.push(this.totalTime)
+          this.inputTimes.push(this.totalTime)
           if (this.direction === 1) {
             this.direction = -1
             if (!muteSoundEffects && !paused) {
@@ -239,19 +238,14 @@ Player.prototype = {
   },
 
   reachGoal: function (playerSprite, homeSprite) {
-  	if (!this.finished) successSound.play()
+  	if (!this.finished) {
+  		successSound.play()
+    	this.mode.reachGoal(playerSprite, homeSprite, this)
+  	}
   	this.finished = true
-
-    this.mode.reachGoal(playerSprite, homeSprite, this)
   },
 
   pause: function () {
-    if (this.game.input.gamepad.justPressed(Phaser.Gamepad.XBOX360_START) && this.mode.sp) {
-      this.direction *= -1
-    }
-    if (this.mode.submitScore) {
-      this.mode.submitScore()
-    }
     if (this.textTween) {
       this.textTween.pause()
     }

@@ -133,7 +133,7 @@ var deathLines = [
 		"text": "Well that was embarrassing..."
 	},
 	{
-		"text": "Hang on. Why do you try\nletting someone else play?"
+		"text": "Hang on... why don't you try\nletting someone else play?"
 	},
 	{
 		"text": "Ok. Try playing this game with\nyour eyes open now."
@@ -158,5 +158,50 @@ var ryoDeathLines = [
 	},
 	{
 		"text": "Maybe we should get him\nto step aside for now."
+	}
+]
+
+var successWithoutHighScoreLines = [
+	{
+		"text": "Good job.\nNow try to beat your high score :)"
+	},
+	{
+		"text": "You did okay this time.. I guess"
+	},
+	{
+		"text": "You can do better. I believe in you."
+	},
+	{
+		"text": "Well, that was a waste of time.\nYou're slower than ever before."
+	},
+	{
+		"text": "So you made it. Good for you."
+	},
+	{
+		"text": "At least you gave your best."
+	},
+	{
+		"text": "Is that the best you got?"
+	}
+]
+
+var successWithNewHighScoreLines = [
+	{
+		"text": "Congrats! Your new high score\nhas been uploaded."
+	},
+	{
+		"text": "Wow. That was an amazing run."
+	},
+	{
+		"text": "Damn, I underestimated you."
+	},
+	{
+		"text": "Nice job. I will let the folks\nat Ninja Van know about this."
+	},
+	{
+		"text": "I'm proud of you.\nYou beat your previous score!"
+	},
+	{
+		"text": "You definitely put our drivers to shame."
 	}
 ]
